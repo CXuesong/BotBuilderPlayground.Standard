@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
 using BotBuilderPlayground.Dialogs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Scorables;
 using Microsoft.Bot.Connector;
 using Microsoft.Extensions.Logging;
 
@@ -16,6 +18,14 @@ namespace BotBuilderPlayground.Controllers
     public class MessagesController : Controller
     {
         private ILogger logger;
+
+        static MessagesController()
+        {
+            Conversation.UpdateContainer(builder =>
+                builder.RegisterType<SampleScorable>()
+                    .As<IScorable<IActivity, double>>()
+                    .InstancePerLifetimeScope());
+        }
 
         public MessagesController(ILoggerFactory loggerFactory)
         {
