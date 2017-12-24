@@ -5,11 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="CXuesong.Ported.Microsoft.Bot.Builder" Version="3.12.2.5" />
+    <PackageReference Include="CXuesong.Ported.Microsoft.Bot.Builder.Autofac" Version="3.12.2.5" />
+    <PackageReference Include="CXuesong.Ported.Microsoft.Bot.Connector" Version="3.12.2.6-int0" />
   </ItemGroup>
 
   <ItemGroup>
